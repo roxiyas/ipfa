@@ -1,24 +1,33 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './material.module';
+import { SidebarModule } from './shared/components/sidebar/sidebar.module';
+import { HttpClientModule } from '@angular/common/http';
+//import { RegistroComponent } from './pages/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+  //  RegistroComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    SidebarModule,
+    HttpClientModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
