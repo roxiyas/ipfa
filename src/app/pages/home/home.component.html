@@ -1,2 +1,50 @@
-<h1 *ngIf="authSvc.isLogged | async">Bienvenido esto es home</h1>
-<p>hola</p>
+<div class="container-fluid mt-3">
+    <h1 class="text-center" *ngIf="authSvc.isLogged | async">Detalles del Titular</h1>
+    
+    <div class="card bg-light text-dark">
+        <div class = "row">
+        <div class = "col-4 text-center">	
+            <div class="card-body">
+                <img height="50%" width="50%" mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </div>
+        </div>
+        <div class="col-4 mt-2">
+            <div class="text-center">
+                <label><b>Información Personal</b></label> <br>
+            </div>
+            <div class="card-body">
+                
+                Cédula: {{allPost2.nacionalidad}}-{{allPost.id}}
+                <br>
+                Apellidos y Nombres: {{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}
+                <br>
+                Estado Civil: {{esdcivil}}
+                <br>
+                Fecha de Nacimiento: {{fechanac}}
+                <br>
+                Sexo: {{sexo}}
+            </div>
+        </div>
+        <div class = "col-4 mt-2">
+            <div class="text-center">
+                <label><b>Información Militar</b></label> <br>
+            </div>
+            <div class="card-body">
+                Grado: {{allGrado.abreviatura}} / {{allGrado.descripcion}}
+                <br>
+                Componente: {{allComponente.abreviatura}} / {{allComponente.descripcion}}
+                <br>
+                Categoria : {{allPost.categoria}}
+                <br>
+                Clase: {{allPost.clase}}
+                <br>
+                Fecha de Ingreso a la fuerza: {{fechaIng}}
+                <br>
+                Años de Servicio: {{allPost.tiemposervicio}}
+                <br>
+                Situación: {{allPost.situacion}}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

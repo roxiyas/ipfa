@@ -1,0 +1,21 @@
+<div class="row col-md-12 text-center">
+    <h1 *ngIf="authSvc.isLogged | async"></h1>
+    <div class="container-xl">
+    <mat-tab-group>
+        <mat-tab label="Solvencia">
+            <app-solvencia></app-solvencia>
+        </mat-tab>
+        <mat-tab label="Solvencia Tramite de Pase a Retiro">
+         <app-solvencia-tr></app-solvencia-tr>
+        </mat-tab>
+        <mat-tab label="Netos Titulares">
+            <app-neto-titular></app-neto-titular>
+        </mat-tab>
+        <!--<mat-tab label="Netos Sobrevivientes">
+             <app-neto-sobreviviente></app-neto-sobreviviente> 
+        </mat-tab>-->
+        <mat-tab label="Autorización de Medicamentos">
+            <app-aut-medicamentos></app-aut-medicamentos>
+        </mat-tab>
+    </mat-tab-group>
+</div>

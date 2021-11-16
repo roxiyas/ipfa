@@ -1,0 +1,91 @@
+<div class="row col-md-12 mt-3">
+
+  <div class="col-12">
+    <select name="lista_n" id="lista_n"[(ngModel)]="opcionSeleccionado" (change)="capturar()">
+      <option value="{{dato.nomina}}/{{dato.desde}}/{{dato.hasta}}" *ngFor="let dato of allPostNeto">
+        {{dato.nomina}} / {{dato.desde}} al {{dato.hasta}}
+      </option>
+    </select>
+  </div>
+  <div [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}
+    <div class="row col-12">
+      <div class="col-sm-3 text-center">
+        <img width="150" height="150" class="rounded-circle" src="../../../../../assets/img/img.png" alt="">
+      </div>
+      <div class="col-sm-6 text-center">
+        <b>
+          REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
+          MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
+          VICEMINISTRO DE SERVICIOS PARA LA DEFENSA <br>
+          DIRECCIÓN GENERAL DE EMPRESAS Y SERVICIOS <br>
+          FUERZA ARMADA NACIONAL BOLIVARIANA <br>
+          RIF: G20003694-3
+        </b>
+      </div>
+
+      <div>
+        <div class="text-center"><b>TITULAR</b></div>
+        <div class="text-center"><b>RECIBO DE PAGO DE PENSIÓN CORRESPONDIENTE A:</b></div>
+        <div class="text-center"><b> {{allPostNomina.nomina}} / {{allPostNomina.mes}}</b></div>
+        <div class="text-center"><b>PERIODO DESDE {{allPostNomina.desde}} AL {{allPostNomina.hasta}}</b></div>
+
+        <div class="row col-md-12 text-center mt-3 m">
+          <div class="col-4 groove">
+            <b>GRADO</b><br>
+            {{allGrado.abreviatura}} / {{allGrado.descripcion}}
+          </div>
+          <div class="col-4 groove">
+            <b>APELLIDOS Y NOMBRES</b><br>
+            {{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}
+          </div>
+          <div class="col-4 groove">
+            <b>N° DE CEDULA</b><br>
+            {{allPost2.nacionalidad}}-{{allPost.id}}
+          </div>
+          <div class="col-4 groove mt-3">
+            <b>CUENTA BANCARIA</b><br>
+            {{allPostNomina.numero}}
+          </div>
+          <div class="col-8 groove mt-3">
+          </div>
+        </div>
+        <div class="col-12 mt-3 mb-3">
+          <table id="customers">
+              <tr>
+                <th>CONCEPTOS</th>
+                <th>CALCULOS</th>
+                <th>ASIGNACIONES</th>
+                <th>DEDUCCIONES</th>
+              </tr>
+              <tr *ngFor="let f of conceptos1.conceptos">
+                  <td>{{f.desc}}</td>
+                  <td class="r">
+                    <h4 class="h4" *ngIf="f.tipo == '97'">Bs. {{f.mont}}</h4>
+                    <h4 class="h4" *ngIf="f.tipo != '97'"></h4>
+                  </td>
+                  <td class="r">
+                    <h4 class="h4" *ngIf="f.tipo == '1'">Bs. {{f.mont}}</h4>
+                    <h4 class="h4" *ngIf="f.tipo != '1'"></h4>
+                  </td>
+                  <td class="r">
+                    <h4 class="h4" *ngIf="f.tipo == '0' || f.tipo == '3'">Bs. {{f.mont}}</h4>
+                    <h4 class="h4" *ngIf="f.tipo != '0'"></h4>
+                  </td>
+              </tr>
+            </table>
+            <div class="row col-md-12 f">
+              <div class="col-6 t a">TOTAL</div>
+              <div class="col-3 t d">Bs.  {{conceptos1.asignaciones}}</div>
+              <div class="col-3 t e">Bs. {{conceptos1.deducciones}}</div>
+            </div>
+            <div class="col-12 text-center t"><br><b>NETO A COBRAR</b> <br>
+              <b>Bs. {{allPostNomina.neto}}</b><br><br>
+            </div>
+            <div class="col-12 text-center"><br><b>IPSFA EN CONTACTO</b><br>
+              <h6>Direccón: Avenida Los Próceres Edif. Sede del IPSFA. Gerencia de Afiliación Planta Baja. Santa Mónica, municipio Libertador. Caracas, Distrito
+                Capital. Teléfonos: (0212) - 609-23-10 / 609-23-11 /609-23-12</h6></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

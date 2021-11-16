@@ -1,0 +1,191 @@
+<div class="col-12 text-center">
+  <button class="btn btn-info mb-2" styleSheetFile="../node_modules/bootstrap/dist/css/bootstrap.min.css" [useExistingCss] = "true" printSectionId="print-section" ngxPrint>Descargar</button>
+</div>
+
+<div class="row col-md-12 mt-3 img" id="print-section">
+  <div class="col-sm-3 text-center">
+    <img width="150" height="150" class="rounded-circle" src="../../../../../assets/img/img.png" alt="">
+  </div>
+  <div class="col-sm-6 text-center">
+    <b>
+      REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
+      MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
+      VICEMINISTRO DE SERVICIOS PARA LA DEFENSA <br>
+      DIRECCIÓN GENERAL DE EMPRESAS Y SERVICIOS <br>
+      FUERZA ARMADA NACIONAL BOLIVARIANA <br>
+      RIF: G20003694-3
+    </b>
+  </div>
+  <div class="col-sm-12 text-center mt-2">
+    <h3><b>HOJA DE SOLVENCIA <br>
+          TRAMITE DE PASE A RETIRE <br>
+          AVALADAS POR EL IPSFA</b></h3>
+  </div>
+  <div class="row col-md-12 m">
+    <label class="text-center"> <b>DATOS DEL AFILIADO</b></label>
+    <div class="col-4 double">
+      APELLIDOS Y NOMBRES <br>
+      <b>{{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}</b>
+    </div>
+    <div class="col-4 double">
+      GRADO / JERARQUIA <br>
+      <b>{{allGrado.abreviatura}} / {{allGrado.descripcion}}</b>
+    </div>
+    <div class="col-4 double">
+      CÉDULA DE IDENTIDAD <br>
+      <b>{{allPost2.nacionalidad}}-{{allPost.id}}</b>
+    </div>
+
+    <div class="col-4 double">
+      COMPONENTE <br>
+      <b>{{allComponente.abreviatura}}/{{allComponente.descripcion}}</b>
+    </div>
+    <div class="col-4 double">
+      TÉLEFONO <br>
+      <b>{{Tel.movil}}</b>
+    </div>
+    <div class="col-4 double">
+      FIRMA DEL AFILIADO <br>
+    </div>
+  </div>
+  <div class="row col-md-12 m mt-3">
+    <label class="text-center"><b>GERENCIA DE AFILIACIÓN (APLICA PARA TODO EL PERSONAL MILITAR)</b></label>
+    <div class="col-9 double">TIEMPO DE SERVIVIO</div>
+    <div class="col-3 double">{{allPost.tiemposervicio}}</div>
+    <div class="col-3 double">VERIFICACIÓN EN EL SISTEMA <br>
+      <mat-radio-group class="espacio" aria-label="Select an option">
+        <mat-radio-button  value="1"> Sí </mat-radio-button>
+        <mat-radio-button class="espacio" value="2"> No </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-4 double">
+      APELLIDOS Y NOMBRES DEL JEFE DE AREA
+    </div>
+    <div class="col-2 double">FIRMA:</div>
+    <div class="col-2 double">SELLO:</div>
+    <div class="col-1 double">FECHA:</div>
+  </div>
+  <div class="row col-md-12 m">
+    <label class="text-center"><b>GERENCIA DE BIENESTAR Y SEGURIDAD SOCIAL (APLICA PARA TODO EL PERSONAL MILITAR)</b></label>
+    <div class="col-8 double"> MEDIDAS DE EMBARGO <br>
+      <mat-radio-group class="espacio" aria-label="Select an option">
+        <mat-radio-button  value="1"> Sí </mat-radio-button>
+        <mat-radio-button class="espacio" value="2"> No </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-4 double text-center"> <br> <b>MONTOS BsF.:</b></div>
+    <div class="col-8 double"> DESCRIPCIÓN</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"> MONTO 5% PENSIONES:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"> MONTO FIDEICOMISO:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double text-end"> <b>TOTAL:</b></div>
+    <div class="col-4 double"></div>
+    <div class="col-4 double text-left"> OBSERVACIONES:</div>
+    <div class="col-8 double"></div>
+  </div>
+
+  <div class="row col-md-12 m mt-2">
+    <label class="text-center"><b>GERENCIA DE VIVIENDA (APLICA PARA TODO EL PERSONAL MILITAR)</b></label>
+    <div class="col-6 double">USUARIO DE VIVIENDA:
+      <mat-radio-group class="espacio" aria-label="Select an option">
+      <mat-radio-button  value="1"> Sí </mat-radio-button>
+        <mat-radio-button class="espacio" value="2"> No </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-6 double">PRESENTO SOLVENCIA:
+      <mat-radio-group class="espacio" aria-label="Select an option">
+      <mat-radio-button  value="1"> Sí </mat-radio-button>
+        <mat-radio-button class="espacio" value="2"> No </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-3 double">
+      CONVENIO DE ENTREGA:<br><br>
+    </div>
+    <div class="col-9 double"></div>
+    <div class="col-3 double">
+      OBSERVACIONES:<br><br>
+    </div>
+    <div class="col-9 double"></div>
+    <div class="col-6 double">
+      APELLIDOS Y NOMBRES DEL JEFE DEL AREA
+      <br><br>
+    </div>
+    <div class="col-2 double">
+      FIMRA
+      <br><br>
+    </div>
+    <div class="col-2 double">
+      FIRMA
+      <br><br>
+    </div>
+    <div class="col-2 double">
+      FECHA
+      <br><br>
+    </div>
+  </div>
+  <div class="row col-md-12 m mt-2">
+    <label class="text-center"> <b>GERENCIA DEL SISA (APLICA A TODO EL PERSONAL MILITAR)</b></label>
+    <div class="col-8 double">DESCRIPCIÓN</div>
+    <div class="col-4 double"><b>MONTOS BsF.:</b></div>
+    <div class="col-8 double"> PRESTAMO ESPECIAL:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"> PRESTAMO EFECTIVO:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"> CREDITO COMERCIAL:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double text-end"> <b>TOTAL:</b></div>
+    <div class="col-4 double"></div>
+    <div class="col-4 double text-left"> OBSERVACIONES:</div>
+    <div class="col-8 double"></div>
+    <div class="col-6 double">
+      APELLIDOS Y NOMBRES DEL JEFE DE AREA
+      <br><br>
+    </div>
+    <div class="col-2 double">FIRMA:</div>
+    <div class="col-2 double">SELLO:</div>
+    <div class="col-2 double">FECHA:</div>
+  </div>
+  <div class="row col-md-12 m mt-2">
+    <label class="text-center"> <b>GERENCIA DEL FINANZAS (NO APLICA AL PERSONAL MILITAR CON MAS DE 15 AÑOS DE SERVICIOS)</b></label>
+    <div class="col-8 double">DESCRIPCIÓN, VERIFICACIÓN Y CONFOMACIÓN CON EL ESTADO DE CUENTA DE COBRANZA:</div>
+    <div class="col-4 double"><b>MONTOS BsF.:</b></div>
+    <div class="col-8 double"> PRESTAMO ESPECIAL:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"> OTROS CREDITOS:</div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"><br></div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"><br></div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"><br></div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"><br></div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double"><br></div>
+    <div class="col-4 double"></div>
+    <div class="col-8 double text-end"> <b>TOTAL:</b></div>
+    <div class="col-4 double"></div>
+    <div class="col-4 double text-left"> OBSERVACIONES:</div>
+    <div class="col-8 double"></div>
+    <div class="col-6 double">
+      APELLIDOS Y NOMBRES DEL JEFE DE AREA
+      <br><br>
+    </div>
+    <div class="col-2 double">FIRMA:</div>
+    <div class="col-2 double">SELLO:</div>
+    <div class="col-2 double">FECHA:</div>
+  </div>
+
+  <div class="row col-md-12 m mt-2">
+    <label class="text-center">OPINIÓN DEL PRESIDENTE DEL INSTITUTO DE PREVENSIÓN SOCIAL DE LA FUERZA ARMADA NACIONAL BOLIVARIANA</label>
+    <div class="col-12 double"><br><br></div>
+    <div class="col-12 double"><br><br></div>
+    <div class="col-12 double"><br><br></div>
+    <div class="col-6 double">APELLIDOS Y NOMBRE DEL JEFE DEL AREA:</div>
+    <div class="col-2 double">FIRMA: <br><br></div>
+    <div class="col-2 double">SELLO: <br><br></div>
+    <div class="col-2 double">FECHA: <br><br></div>
+  </div>
+  </div>

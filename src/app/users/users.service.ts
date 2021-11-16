@@ -19,8 +19,8 @@ export class UsersService {
     return this.http
     .post<User>(`${environment.API_URL}/users`, user)
     .pipe(catchError(this.handlerError));
-
   }
+  
   handlerError(error:any):Observable<never>{
     let errorMessage = 'Error desconocido';
     if (error){

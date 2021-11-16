@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
-RegistroComponent,
+    RegistroComponent,
   ],
   imports: [
     CommonModule,

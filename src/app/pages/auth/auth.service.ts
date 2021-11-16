@@ -15,49 +15,54 @@ export class AuthService {
   private loggedIn= new BehaviorSubject <boolean>(false);
  // private role = new BehaviorSubject<Roles>(null);
  //private role= new BehaviorSubject <void>;
- private role = new BehaviorSubject<Roles | null>(null);
+
+  private cedula = new BehaviorSubject<User | any>(null);
+  
+  private role = new BehaviorSubject<Roles | null>(null);
 
   constructor(private http: HttpClient, private router: Router) {
-
     this.checkToken();
-
-   }
-   get isLogged(): Observable<boolean>{
-     return this.loggedIn.asObservable();
    }
 
-   get isAdmin$(): Observable <any> {
-
-     return this.role.asObservable ();
+  get isLogged(): Observable<boolean>{
+    return this.loggedIn.asObservable();
   }
 
-  login(authData: User): Observable<UserResponse | void>{
+  get isAdmin$(): Observable <any> {
+    return this.role.asObservable ();
+  }
+
+  get iscedula$(): Observable <any> {
+    return this.cedula.asObservable ();
+  }
+
+  login(authData: User): Observable<UserResponse | void>{  
     return this.http
     .post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
     .pipe(
-      map((user:UserResponse)=> {
-       // console.log('Res->', res)
+      map((user:UserResponse)=> {  
         this.saveLocalStorage(user);
         this.loggedIn.next(true);
         this.role.next(user.role);
+        this.cedula.next(user.cedula);    
         return user;
       }),
       catchError((err)=> this.handlerError(err))
     );
-
   };
+  
   logout():void{
     localStorage.removeItem('user');
     this.loggedIn.next(false);
     this.role.next(null);
     this.router.navigate(['/login']);
-
   };
 
   private checkToken(): void {
     const user = JSON.parse(localStorage.getItem('user')!) || null;
-
-    if (user) {
+   /* console.log(user);*/
+    
+    if (user) {      
       const isExpired = helper.isTokenExpired(user.token);
 
       if (isExpired) {
@@ -66,7 +71,7 @@ export class AuthService {
         //this.user.next(user);
         this.loggedIn.next(true);
         this.role.next(user.role);
-
+        this.cedula.next(user.cedula);      
       }
     }
   }
@@ -76,9 +81,6 @@ export class AuthService {
     const { userId, message, ...rest } = user;
     localStorage.setItem('user', JSON.stringify(rest));
   }
-
-
-
 
   private handlerError(err:any): Observable<never> {
     let errorMessage = 'An errror occured retrienving data';

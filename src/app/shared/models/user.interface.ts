@@ -5,6 +5,7 @@ export interface User {
 }
 export interface UserResponse extends User {
   message: string;
+  cedula : string;
   token: string;
   userId: number;
   role: Roles;
