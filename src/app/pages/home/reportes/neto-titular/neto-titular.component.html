@@ -80,6 +80,14 @@
                 </td>
             </tr>
           </table>
+          <table id="customers">
+            <tr>
+              <th>Conceptos</th>
+            </tr>
+              <tr *ngFor="let f of conceptos1.conceptos">{{f.desc}}</tr>
+              <tr *ngFor="let f of conceptos4">{{f}}</tr>
+            
+          </table>
           <div class="row col-md-12 f">
             <div class="col-6 h5 t a">TOTAL</div>
             <div class="col-3 h5 t d">Bs.  {{conceptos1.asignaciones}}</div>

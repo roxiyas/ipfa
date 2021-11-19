@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { left } from '@popperjs/core';
 import { PostDataService } from '../../home.service';
 
@@ -28,15 +29,18 @@ export class NetoTitularComponent implements OnInit {
   nom = '';
   fd = '';
   fh = '';
-  conceptos : any = [];
-  allconceptos : any = [];
-  allconceptosd : any = [];
-  allConcep :any = [];
-  conceptoss : any = [];
+
+  elemtos : any = [];
+
+  
   conceptos1 : any = {};
+  
+
+  conceptos : any = [];  
   conceptos2 : any = [];
   conceptos3 : any = [];
 
+  conceptos4 : any = [];
 
   constructor(private data : PostDataService){
       this.data.getPostData().subscribe (data => {
@@ -54,6 +58,7 @@ export class NetoTitularComponent implements OnInit {
       for (let i = 0; i < array.length; i++) {
         this.allPostNomina = array[i];
       }
+      
     })
   }
 
@@ -69,17 +74,35 @@ export class NetoTitularComponent implements OnInit {
 
       let array = this.allPostNeto;
       for (let i = 0; i < array.length; i++) {
-        const mes = array[i]['mes'];
         const md = array[i]['desde'];
         const mh = array[i]['hasta'];
         const nom = array[i]['nomina'];
 
         if (md == this.fd && mh == this.fh && nom == this.nom) {
-          this.allPostNomina = array[i];
+          this.allPostNomina = array[i];          
           this.allCalculos = this.allPostNomina.calculos;
-
           this.conceptos1 = JSON.parse(this.allCalculos);
-        }
+          console.log(this.conceptos1);
+          
+          let concep = this.conceptos1['conceptos'];
+          for (let i = 0; i < concep.length; i++) {
+            const elemento = concep[i]['desc'];
+    
+            this.data.getPostDataConceptos().subscribe( data => {
+            this.conceptos = data;
+    
+              for (let i = 0; i < this.conceptos.length; i++) {
+                const element = this.conceptos[i]['codigo'];
+    
+                if (elemento == element) {
+                  this.conceptos2 = this.conceptos[i]['descripcion'];
+                  this.conceptos3 = this.conceptos4.push(this.conceptos2);
+                } 
+              }
+            });
+          }   
+
+        }        
       }
     })
   }
