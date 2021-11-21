@@ -3,6 +3,7 @@ import { FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     private authSvc: AuthService,
     private fb:FormBuilder,
-    private router:Router) { }
+    private router:Router,
+    private toastr: ToastrService) { }
 
 
 

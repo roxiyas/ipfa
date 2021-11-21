@@ -6,6 +6,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { Roles, User, UserResponse } from '@app/shared/models/user.interface';
 import { catchError, map} from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import {ToastrService} from 'ngx-toastr';
+
 
 const helper = new JwtHelperService();
 @Injectable({
@@ -20,7 +22,7 @@ export class AuthService {
   
   private role = new BehaviorSubject<Roles | null>(null);
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
     this.checkToken();
    }
 
@@ -49,8 +51,11 @@ export class AuthService {
         this.cedula.next(user.cedula);    
         return user;
       }),
+      
       catchError((err)=> this.handlerError(err))
     );
+    
+    
   };
   
   logout():void{
@@ -83,11 +88,15 @@ export class AuthService {
     const { userId, message, ...rest } = user;
     localStorage.setItem('user', JSON.stringify(rest));
   }
-
+   //mensaje de no login error
   private handlerError(err:any): Observable<never> {
-    let errorMessage = 'ocurrio un error, vuelva a intentar';
+
+    
+
+   let errorMessage = 'USUARIO O CLAVE INCORRECTO';
     if (err) {
-      errorMessage = `Error: code ${err.message}`;
+      errorMessage = `Error:  ${errorMessage}`;
+     
     }
     window.alert(errorMessage);
     return throwError(errorMessage);

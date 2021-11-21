@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
    RegistroComponent,
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     MatDialogModule,
     ReactiveFormsModule,
+   
 
   ]
 })

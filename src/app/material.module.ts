@@ -19,7 +19,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import {NgxPrintModule} from 'ngx-print';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { ToastrModule } from 'ngx-toastr';
+;
 
 
 const myModules = [
@@ -42,7 +42,7 @@ const myModules = [
   MatOptionModule,
   MatSelectModule,
   MatDatepickerModule,
-  ToastrModule,
+  
 ];
 
 @NgModule({

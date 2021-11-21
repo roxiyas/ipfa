@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
 import { UsersService } from '@app/users/users.service';
 import { Subscription } from 'rxjs';
 import {AlertasService} from "../../shared/services/alertas/alertas.service"
-import {ToastrService}from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
+
 
 
 @Component({
@@ -14,9 +15,7 @@ import {ToastrService}from 'ngx-toastr';
 })
 
 export class RegistroComponent {
-
-
-  
+   
   private  isValidEmail = /\S+@\S+\.\S+/;
 
  // private subscription: Subscription = new Subscription(); //aca pasa algo
@@ -49,9 +48,14 @@ export class RegistroComponent {
    private toastr: ToastrService,
   
    ) {
+
+
     this.Date = new Date().toISOString().slice(0, 0);  //esto es la fecha
 
  }
+
+ 
+
  ///se guarda el militar correo y clave
 
  getPostDataConceptos(){
@@ -88,29 +92,25 @@ export class RegistroComponent {
         if (compo == this.componente) {
           if (this.Date == this.fechaIng) {
             const user = { username: this.username, password: this.password, cedula: this.cedula, role: this.role, cedulafamiliar : this.cedulafamiliar};
-            this.userService.register(user).subscribe(data => {
-              //console.log(data);
-              
-              this.toastr.success('USUARIO REGISTRADO','EXITO');
-
-            });
-          }
+            this.userService.register(user).subscribe(data => {});
+            this.toastr.success('Usuario Guardado','Alerta');
+            window.location.reload ();         }
           else{
-             // this.alertas.showSuccess('no es la fecha correcta','Vuelva a intentar');
-            console.log('no es fecha');
+           
+             this.toastr.warning('Fecha Incorrecta','Alerta');
+             ///console.log('no es fecha');
           }
         }else{
-         // this.alertas.showSuccess('No es componente','Vuelva a intentar');
-          console.log('no es componente');
-          
+          this.toastr.warning('No es componente','Alerta');
+         
         }
       }else{
-        //this.alertas.showSuccess('Cedula no Existe','Vuelva a intentar');
-      console.log('Cedula no Existe');
+        this.toastr.warning('Cedula no Existe','Alerta');
+      //console.log('Cedula no Existe');
       }
     })
 
-   // console.log(this.cedula);
+ 
 
 }
 
