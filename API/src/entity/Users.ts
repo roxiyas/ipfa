@@ -18,6 +18,10 @@ export class Users {
   @MinLength(6)
   @IsNotEmpty()
   cedula: string;
+  
+  
+  @Column()
+  cedulafamiliar: string;
 
   @Column()
   @MinLength(6)
@@ -30,12 +34,12 @@ export class Users {
 
   @Column()
   @CreateDateColumn()
-  @IsNotEmpty ()
+ 
   createdAt: Date;
 
   @Column()
   @UpdateDateColumn ()
-  @IsNotEmpty ()
+  
    updateAt: Date;
 
   hashPassword(): void {

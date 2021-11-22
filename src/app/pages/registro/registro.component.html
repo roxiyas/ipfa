@@ -1,64 +1,67 @@
+
 <div class="registro-form">
+
   <mat-card>
-    <mat-card-content>
-      <h1>Registro Nuevo Usuario</h1>
-      <form >
+       <mat-card-content>
+      <h1>Registro IPSFA EN LíNEA</h1>
+      <form [formGroup] = "registroForm" (ngSubmit)="register()">
+
         <mat-form-field class="full-width-input">
           <input
           text="text"
           formControlName="cedula"
+          [(ngModel)]="cedula"
           matInput
-          placeholder="Cedula"
+          placeholder="Cedula Titular"
           required />
           <!-- <mat-error *ngIf="isValidField('username')">
             {{getErrorMessage("username")}}
           </mat-error> -->
         </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input
-          text="date"
-          formControlName="date"
-          matInput
-          placeholder="fecha de Ingreso en la FANB"
-          required />
-       <!-- <mat-error *ngIf="isValidField('username')">
-            {{getErrorMessage("username")}}
-          </mat-error> -->
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <mat-label>Seleccionar </mat-label>
-          <mat-select>
-            <mat-option value="">Ejercito Bolivariono</mat-option>
-            <mat-option value="">Armada Bolivariona</mat-option>
-            <mat-option value="">Aviaciòn Nacional</mat-option>
-            <mat-option value="">Guardia Nacional</mat-option>
 
+        <mat-form-field class="full-width-input">
+          <mat-label>Seleccionar su Componente </mat-label>
+          <mat-select  [(ngModel)]="componente" formControlName="componente">
+            <mat-option value="EJ">Ejercito Bolivariana</mat-option>
+            <mat-option value="AR">Armada Bolivariana</mat-option>
+            <mat-option value="AV">Aviaciòn Nacional</mat-option>
+            <mat-option value="GN">Guardia Nacional</mat-option>
           </mat-select>
         </mat-form-field>
-
-        <mat-form-field class="full-width-input">
-            <input
-            text="text"
-            formControlName="username"
-            matInput
-            placeholder="Correo Electronico"
-            required />
-            <!-- <mat-error *ngIf="isValidField('username')">
-              {{getErrorMessage("username")}}
-            </mat-error> -->
-          </mat-form-field>
-          <mat-form-field class="full-width-input separator">
-            <input
-            formControlName="password"
-            matInput
-            placeholder="Password"
-            required/>
-          </mat-form-field>
-          <button
-        type="submit"
-        class="fadeIn Fourth"
-        >Crear</button>
-
+       <div  style="text-align:left">  <h5> Ingrese la Fecha de Ingreso a la FANB</h5>
+        
+        <input type="date" [(ngModel)]="Date" formControlName="Date"  class="full-width-input"  id="checkindate" 
+         [min]="Date">
+       
+        </div>
+      <mat-form-field class="full-width-input">
+        <input
+        text="text"
+        formControlName="username"
+        [(ngModel)]="username"
+        matInput
+        placeholder="Correo Electronico"
+        required />
+        <!-- <mat-error *ngIf="isValidField('username')">
+          {{getErrorMessage("username")}}
+        </mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="full-width-input separator">
+        <input
+        type="password"
+        formControlName="password"
+        [(ngModel)]="password"
+        matInput
+        placeholder="Password"
+        required/>
+         
+        <!-- <mat-error *ngIf="isValidField('password')">
+          {{getErrorMessage("password")}}
+        </mat-error> -->
+      </mat-form-field>
+      <button
+      [disabled]="registroForm.invalid"
+      type="submit" mat-raised-button color="primary">Crear</button>
     </form>
     </mat-card-content>
   </mat-card>

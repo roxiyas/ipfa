@@ -1,7 +1,7 @@
-import { catchError } from "rxjs/operators";
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
+import { UserResponse } from "@app/shared/models/user.interface";
 import { environment } from '@env/environment';
 
 import { User } from "@app/shared/models/user.interface";
@@ -13,8 +13,19 @@ import { User } from "@app/shared/models/user.interface";
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
+   
+  register(user: any): Observable<any> {
+    return this.http.post("http://localhost:3000/users/", user);
+  }
 
+  
+ 
+ 
+  /* createUser(user: any): Observable<any>{
+    return this.http.post('http://localhost:3000/users', user);
+  }*/
 
+/*
   new(user: User): Observable<User> {
     return this.http
     .post<User>(`${environment.API_URL}/users`, user)
@@ -28,7 +39,7 @@ export class UsersService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
-  }
+  }*/
 
 }
 //.post<UserResponse>(`${environment.API_URL}/auth/login`, authData)

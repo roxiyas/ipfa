@@ -36,6 +36,8 @@ export class AuthService {
     return this.cedula.asObservable ();
   }
 
+  
+
   login(authData: User): Observable<UserResponse | void>{  
     return this.http
     .post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
@@ -83,7 +85,7 @@ export class AuthService {
   }
 
   private handlerError(err:any): Observable<never> {
-    let errorMessage = 'An errror occured retrienving data';
+    let errorMessage = 'ocurrio un error, vuelva a intentar';
     if (err) {
       errorMessage = `Error: code ${err.message}`;
     }

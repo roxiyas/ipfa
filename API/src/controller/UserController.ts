@@ -33,13 +33,15 @@ export class UserController {
   };
 
   static new = async (req: Request, res: Response) => {
-    const { username, password, role } = req.body;
+    const { username, password, role, cedula,cedulafamiliar} = req.body;
     const user = new Users();
 
     user.username = username;
     user.password = password;
     user.role = role;
-
+    user.cedula= cedula;
+    user.cedulafamiliar= cedulafamiliar;
+    
     // Validate
     const validationOpt = { validationError: { target: false, value: false } };
     const errors = await validate(user, validationOpt);
@@ -54,10 +56,10 @@ export class UserController {
       user.hashPassword();
       await userRepository.save(user);
     } catch (e) {
-      return res.status(409).json({ message: 'Username already exist' });
+      return res.status(409).json({ message: 'usuario ya existe' });
     }
-    // All ok
-    res.send('User created');
+    // All ok esto daba la alerta de guardado
+   // res.send('Usuario Creado');
   };
 
   static edit = async (req: Request, res: Response) => {
