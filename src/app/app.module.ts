@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FamiliaresModule } from './pages/home/familiares/familiares.module';
 import { ReportesModule } from './pages/home/reportes/reportes.module';
 import { SolvenciaModule } from './pages/home/reportes/solvencia/solvencia.module';
-
+import { AfiliacionModule } from './pages/home/reportes/afiliacion/afiliacion.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { SolvenciaModule } from './pages/home/reportes/solvencia/solvencia.modul
     FamiliaresModule,
     ReportesModule,
     SolvenciaModule,
+    AfiliacionModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     })

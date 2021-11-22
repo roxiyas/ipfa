@@ -25,12 +25,59 @@ export class HomeComponent implements OnInit {
   feIng = '';
   faIng : any = [];
 
+  allFecf : any = [];
+  fechaIngf : any = [];
+
+  categoria : any = [];
+  clasificacion : any = [];
+  parentesco : any = [];
+  situacionm : any = [];
+
   constructor( public authSvc:AuthService, private post: PostDataService){
     this.post.getPostData().subscribe (data => {
       this.allPost = data;
       this.allPost2 = this.allPost.Persona.DatoBasico;
       this.allGrado = this.allPost.Grado;
       this.allComponente = this.allPost.Componente;
+
+      let situ = this.allPost.situacion;
+      if (situ == 'ACT') {
+        this.situacionm = 'ACTIVO';
+      }if (situ = 'RCP') {
+        this.situacionm = 'RESERVA ACTIVA CON GOCE PENSIÓN';
+      }
+
+      let cat = this.allPost.categoria;
+      if (cat == 'EFE') {
+        this.categoria = 'EFETIVO';
+      }else if(cat == 'ASI'){
+        this.categoria = 'ASIMILADO';
+      }
+      
+      let clasf = this.allPost.clase;
+      if (clasf == 'TPROF') {
+        this.clasificacion = 'TROPA PROFESIONAL';
+      }else if (clasf == 'ASI') {
+        this.clasificacion = 'ASIMILADO';
+      }else if (clasf == 'OFIT'){
+        this.clasificacion = 'OFICIAL TÉCNICO';
+      }else if (clasf == 'OFITR'){
+        this.clasificacion = 'OFICIAL TROPA';
+      }else if (clasf == 'OFI'){
+        this.clasificacion = 'COMANDO';
+      }
+
+      //ARREGLO PARA CONVERTIR LA FECHA DE INGRESO
+      this.allFecf = this.allPost.fingreso;
+      let ISODateIngS = new Date(this.allFecf).toISOString();        
+      let feIngfb = ISODateIngS.substr(0, 10);
+      let faIngf = feIngfb.split("-");
+ 
+      if (faIngf[0] != "0001") {
+        this.fechaIngf =  faIngf[2] + "/" + faIngf[1] + "/" + faIngf[0];
+      } else {
+        this.fechaIngf = '';
+      }
 
       //ARREGLO PARA SEXO
       this.sexo = this.allPost2.sexo;

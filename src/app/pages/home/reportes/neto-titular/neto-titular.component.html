@@ -1,14 +1,20 @@
 <div class="col-12">
-  <select  class="btn btn-light mb-2" name="lista_n" id="lista_n"[(ngModel)]="opcionSeleccionado" (change)="capturar()">
+  <select class="btn btn-light mb-2" name="lista_n" id="lista_n" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
       <option value="0">SELECCIONE</option>
       <option value="{{dato.nomina}}/{{dato.desde}}/{{dato.hasta}}" *ngFor="let dato of allPostNeto">
       {{dato.nomina}} / {{dato.desde}} al {{dato.hasta}}
     </option>
   </select>
-</div>
+</div> 
+
 <div class="col-12 text-center">
   <button class="btn btn-info mb-2" styleSheetFile="../node_modules/bootstrap/dist/css/bootstrap.min.css" [useExistingCss] = "true" printSectionId="print-section" ngxPrint>Descargar</button>
 </div>
+
+<div class="col-12 text-center">
+  <button (click)="recargar()">Recargar</button>
+</div>
+
 <div class="container-fluid mt-3" id="print-section" [hidden]="opcionSeleccionado == '0'">
   <div class="card bg-light">
     <div class="row">
@@ -31,31 +37,32 @@
       </div>
 
         <div class="col-1"></div>
-        <div class="col-4 h4 double mb">
+        <div class="col-3 h4 groove mb">
+          JERARQUIA <br>
+          <b> {{allGrado.descripcion}}</b>
+        </div>
+        <div class="col-4 h4 groove mb">
           APELLIDOS Y NOMBRES <br>
           <b>{{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}</b>
         </div>
-        <div class="col-3 h4 double mb">
-          GRADO / JERARQUIA <br>
-          <b>{{allGrado.abreviatura}} / {{allGrado.descripcion}}</b>
-        </div>
-        <div class="col-3 h4 double mb">
+        <div class="col-3 h4 groove mb">
           CÉDULA DE IDENTIDAD <br>
           <b>{{allPost2.nacionalidad}}-{{allPost.id}}</b>
         </div>
         <div class="col-1"></div>
         <div class="col-1"></div>
-        <div class="col-4 h4 double mb">
+        <div class="col-4 h4 groove mb">
           COMPONENTE <br>
-          <b>{{allComponente.abreviatura}}/{{allComponente.descripcion}}</b>
+          <b>{{allComponente.descripcion}}</b>
         </div>
-        <div class="col-6 h4 double mb">
+        <div class="col-6 h4 groove mb">
           <b>CUENTA BANCARIA</b><br>
-          {{allPostNomina.numero}}
+          {{cuenta}}
         </div>
 
         <div class="col-1"></div>
         <div class="col-1"></div>
+
         <div class="col-10 mt-5">
           <table id="customers">
             <tr>
@@ -64,35 +71,27 @@
               <th>ASIGNACIONES</th>
               <th>DEDUCCIONES</th>
             </tr>
-            <tr *ngFor="let f of conceptos1.conceptos">
-                <td class="h5">{{f.desc}}</td>
+            <tr *ngFor="let f of conceptos4">
+                <td class="h4 s">{{f.concep}}</td>
                 <td class="r">
-                  <h4 class="h4" *ngIf="f.tipo == '97'">Bs. {{f.mont}}</h4>
+                  <h4 class="h4 r" *ngIf="f.tipo == '97'">Bs. {{f.montos}}</h4>
                   <h4 class="h4" *ngIf="f.tipo != '97'"></h4>
                 </td>
                 <td class="r">
-                  <h4 class="h4" *ngIf="f.tipo == '1'">Bs. {{f.mont}}</h4>
+                  <h4 class="h4 r" *ngIf="f.tipo == '1'">Bs. {{f.montos}}</h4>
                   <h4 class="h4" *ngIf="f.tipo != '1'"></h4>
                 </td>
                 <td class="r">
-                  <h4 class="h4" *ngIf="f.tipo == '0' || f.tipo == '3'">Bs. {{f.mont}}</h4>
+                  <h4 class="h4 r" *ngIf="f.tipo == '0' || f.tipo == '3'">Bs. {{f.montos}}</h4>
                   <h4 class="h4" *ngIf="f.tipo != '0'"></h4>
                 </td>
             </tr>
-          </table>
-          <table id="customers">
             <tr>
-              <th>Conceptos</th>
+              <td colspan="2" class="h4 r">TOTAL</td>
+              <td class="h4 r"> Bs.  {{conceptos1.asignaciones}}</td>
+              <td class="h4 r">Bs. {{conceptos1.deducciones}}</td>
             </tr>
-              <tr *ngFor="let f of conceptos1.conceptos">{{f.desc}}</tr>
-              <tr *ngFor="let f of conceptos4">{{f}}</tr>
-            
           </table>
-          <div class="row col-md-12 f">
-            <div class="col-6 h5 t a">TOTAL</div>
-            <div class="col-3 h5 t d">Bs.  {{conceptos1.asignaciones}}</div>
-            <div class="col-3 h5 t e">Bs. {{conceptos1.deducciones}}</div>
-          </div>
           <div class="col-12 text-center t"><br><b>NETO A COBRAR</b> <br>
             <b >Bs. {{allPostNomina.neto}}</b><br><br>
           </div>
@@ -100,10 +99,19 @@
         <div class="col-12 h6 mt-5">
           <b>IPSFA EN CONTACTO</b>
         </div>
+        <div class="col-1"></div>
+        <div class="col-10 text-center t">
+          <br><br><br><br>
+        </div>
         <div class="col-12 h6 mt-5">
-          <b>Direccón: Avenida Los Próceres Edif. Sede del IPSFA. Gerencia de Afiliación Planta Baja. Santa Mónica, municipio Libertador. Caracas, Distrito
+          <b>Dirección: Avenida Los Próceres Edif. Sede del IPSFA. Gerencia de Afiliación Planta Baja. Santa Mónica, municipio Libertador. Caracas, Distrito
             Capital. Teléfonos: (0212) - 609-23-10 / 609-23-11 /609-23-12</b>
         </div>
     </div>
   </div>
 </div>
+
+<script>
+
+  
+</script>

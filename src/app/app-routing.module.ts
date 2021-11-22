@@ -18,10 +18,10 @@ const routes: Routes = [
   { path: 'inicio', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)},
   { path: 'reportes', loadChildren: () => import('./pages/home/reportes/reportes.module').then(m => m.ReportesModule)},
   { path: 'solvencia', loadChildren: () => import('./pages/home/reportes/solvencia/solvencia.module').then(m => m.SolvenciaModule)},
-
+  { path: 'afiliacion', loadChildren: () => import('./pages/home/reportes/afiliacion/afiliacion.module').then(m => m.AfiliacionModule)},
 
   {path: '**', loadChildren: () => import('./pages/home/home.module').then((m) => m.HomeModule)}
-  //{path: '**', redirectTo: 'login', pathMatch: 'full'  }
+
 ];
 
 @NgModule({

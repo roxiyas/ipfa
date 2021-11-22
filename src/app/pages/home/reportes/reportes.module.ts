@@ -7,6 +7,7 @@ import { SolvenciaModule } from './solvencia/solvencia.module';
 import { SolvenciaTrModule } from './solvencia-tr/solvencia-tr.module';
 import { NetoTitularModule } from './neto-titular/neto-titular.module';
 import { AutMedicamentosModule } from './aut-medicamentos/aut-medicamentos.module';
+import { AfiliacionModule } from './afiliacion/afiliacion.module';
 
 
 
@@ -21,7 +22,8 @@ import { AutMedicamentosModule } from './aut-medicamentos/aut-medicamentos.modul
     SolvenciaModule,
     SolvenciaTrModule,
     NetoTitularModule,
-    AutMedicamentosModule
+    AutMedicamentosModule,
+    AfiliacionModule
   ]
 })
 export class ReportesModule { }

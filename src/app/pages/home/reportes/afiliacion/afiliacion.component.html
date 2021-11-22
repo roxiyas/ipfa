@@ -1,0 +1,138 @@
+<div class="col-12 text-center">
+    <button class="btn btn-info mb-2" styleSheetFile="../node_modules/bootstrap/dist/css/bootstrap.min.css" [useExistingCss] = "true" printSectionId="print-section" ngxPrint>Descargar</button>
+  </div>
+<div class="container-fluid mt-3" id="print-section">
+    <div class="card bg-light">
+        <div class="row">
+            <div class="col-3">
+                <img width="150" height="150" class="rounded-circle" src="../../../../../assets/img/img.png" alt="">
+            </div>
+            <div class="col-7 h4 mt-4">
+                REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
+                MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
+                VICEMINISTRO DE SERVICIOS PARA LA DEFENSA <br>
+                DIRECCIÓN GENERAL DE EMPRESAS Y SERVICIOS <br>
+                FUERZA ARMADA NACIONAL BOLIVARIANA <br>
+                RIF: G20003694-3
+            </div>
+            <div class="col-12 h4">
+               <b>CONSTANCIA DE AFILIACIÓN</b> <br>
+            </div>
+            <div class="col-12 h5 mt-2">
+               Quien suscribe <b>GENERAL DE DIVISIÓN</b> Presidende de la Junta Administradora del Instituto de Previsión Social de la Fuerza Armada Nacional Bolivariana,
+               hace constar por medio de la presente que el (la) <b>CIUDADANO (A) {{allGrado.descripcion}} {{allPost2.apellidoprimero}} {{allPost2.nombreprimero}}</b>,
+               Titular de la Cédula de Identidad Número {{allPost2.nacionalidad}}-. <b>{{allPost2.cedula}}</b>, se encuentra Afiliado(a) a este Instituto.
+            </div>
+
+            <div class="col-1"></div>
+            <div class="col-10 mt-4">
+                <table id="customers">
+                    <tr>
+                        <td colspan="5" class="h5"><b>DATOS PERSONALES</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="h5"><b>Estado Civil:</b></td>
+                        <td colspan="1" class="h5">{{esdcivil}}</td>
+                        <td colspan="1" class="h5"><b>Fecha de Nacimiento</b></td>
+                        <td colspan="1" class="h5">{{fechaIng}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="h5">Dirección</td>
+                        <td colspan="4" class="h5">{{direccion_c}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="h5"><b>DATOS MILITARES</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="h5"><b>Ingreso a la FANB:</b></td>
+                        <td colspan="1" class="h5">{{fechaIngf}}</td>
+                        <td colspan="1" class="h5"><b>Componente</b></td>
+                        <td colspan="1" class="h5">{{allComponente.descripcion}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="h5"><b>Situación:</b></td>
+                        <td colspan="1" class="h5">{{situacionm}}</td>
+                        <td colspan="1" class="h5"><b>Clasificación / Categoria:</b></td>
+                        <td colspan="1" class="h5">{{categoria}} / {{clasificacion}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="h5"><b>Fecha Último Ascenso:</b></td>
+                        <td colspan="1" class="h5">{{fechaUA}}</td>
+                        <td colspan="1" class="h5"><b>Años de Servicio:</b></td>
+                        <td colspan="1" class="h5">{{allPost.tiemposervicio}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="h5"><b>DATOS FAMILIARES</b></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-1"></div>
+
+            <div class="col-5 fa">
+                <table id="customers" >
+                    <tr>
+                        <th class="h4">APELLIDOS Y NOMBRES</th>
+                        <th class="h4">CÉDULA</th>
+                    </tr>
+                    <tr *ngFor="let item of allFam">
+                        <td class="h6">{{item.Persona.DatoBasico.apellidoprimero}}, {{item.Persona.DatoBasico.nombreprimero}}</td>
+                        <td class="h6">{{item.Persona.DatoBasico.cedula}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-1 c fa">
+                <table id="customers">
+                    <tr>
+                        <th class="h4">PARENTESCO</th>
+                    </tr>
+                    <tr *ngFor="let f of parentesco">
+                        <td class="h6">{{f}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-2 c fa">
+                <table id="customers">
+                    <tr>
+                        <th class="h4">FECHA NAC.</th>
+                    </tr>
+                    <tr *ngFor="let f of fecharangf">
+                        <td class="h6">{{f}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-2 c">
+                <table id="customers">
+                    <tr>
+                        <th class="h4">SITUACIÓN</th>
+                    </tr>
+                    <tr *ngFor="let f of situacion">
+                        <td class="h6">{{f}}</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="col-12 mt-3"></div>
+            <div class="col-12 h5 mt-2">
+                Constancia que expide a petición de la parte interesada a los 19 días del mes de Noviembre de 2021.
+            </div>
+            <div class="col-5 l mt-5">
+                <img width="70%" src="../../../../../assets/img/afiliacion.jpeg">
+            </div>
+            <div class="col-6 mt-5 text-center">
+                <img width="50%" src="../../../../../assets/img/firma GD.jpeg">
+                <br>
+                <img width="100%" src="../../../../../assets/img/nombre gd.png">
+            </div>
+            <div class="col-12 text-center h5">
+                CHAVEZ VIVE LA PATRÍA SIGUE <br>
+                INDEPENDENCIA Y PATRIA SOCIALISTA... VIVIREMOS Y VENCEREMOS <br>
+                "LEALES SIEMPRE, TRAIDORES NUNCA" ...
+            </div>
+            <div class="col-12 h6 mt-5">
+                <b>Dirección: Avenida Los Próceres Edif. Sede del IPSFA. Gerencia de Afiliación Planta Baja. Santa Mónica, municipio Libertador. Caracas, Distrito
+                  Capital. Teléfonos: (0212) - 609-23-10 / 609-23-11 /609-23-12</b>
+              </div>
+        </div>
+    </div>
+</div>

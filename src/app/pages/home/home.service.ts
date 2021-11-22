@@ -43,7 +43,7 @@ export class PostDataService implements OnInit, OnDestroy{
         let url = "http://app.ipsfa.gob.ve:8081/devel/api/nomina/conceptos/listar/";
         return this.http.get(url);
       }
-
+      
       ngOnDestroy(): void {
         this.destroy$.next({});
         this.destroy$.complete();

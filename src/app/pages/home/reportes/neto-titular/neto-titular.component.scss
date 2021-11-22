@@ -1,11 +1,12 @@
-.groove {border-style: groove;}
+.groove {border-style: groove;
+  border-radius: px 1;}
 
 .m{
   margin-left: 1%;
 }
 
 .h4{
-  margin: 0 0 0px;
+  margin: 0 0 -3px;
   text-align: center;
   font-size: 10px;
 }
@@ -26,11 +27,12 @@
 #customers tr:hover {background-color: #ddd;}
 
 #customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   text-align: center;
   background-color: #787c7b;
   color: white;
+  font-size: 12px;
 }
 .s{
   text-align: left;
@@ -51,11 +53,11 @@
 }
 
 .a{
-  width: 52%;
+  width: 55.7%;
 }
 
 .d{
-  width: 23%;
+  width: 60%;
 }
 .e{
   width: 24%;

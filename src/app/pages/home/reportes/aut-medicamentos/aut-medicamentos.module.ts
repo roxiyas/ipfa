@@ -5,9 +5,6 @@ import { MaterialModule } from '@app/material.module';
 import { AutMedicamentosComponent } from './aut-medicamentos.component';
 import { AutMedicamentosRoutingModule } from './aut-medicamentos-routing.module';
 
-
-
-
 @NgModule({
   declarations: [
     AutMedicamentosComponent

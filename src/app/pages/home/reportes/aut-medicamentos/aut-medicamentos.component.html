@@ -1,65 +1,54 @@
-
 <div class="col-12 text-center">
-  <button class="btn btn-info mb-2"  [useExistingCss] = "true" printSectionId="print-section" ngxPrint>Descargar</button>
+  <button class="btn btn-info mb-2" styleSheetFile="../node_modules/bootstrap/dist/css/bootstrap.min.css" [useExistingCss] = "true" printSectionId="print-section" ngxPrint>Descargar</button>
 </div>
-
-<div  class="container-fluid mt-3" id="print-section">
-
-    <div class="row col-md-12 text-center">
+<div class="container-fluid mt-3" id="print-section">
+  <div class="card bg-light">
+    <div class="row">
       <div class="col-3">
         <img width="150" height="150" class="rounded-circle" src="../../../../../assets/img/img.png" alt="">
       </div>
-      <div class="col-8">
-        <label>
-            REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
-            MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
-            VICEMINISTRO DE SERVICIOS PARA LA DEFENSA <br>
-            DIRECCIÓN GENERAL DE EMPRESAS Y SERVICIOS <br>
-            FUERZA ARMADA NACIONAL BOLIVARIANA <br>
-            RIF: G20003694-3
-        </label>
+      <div class="col-7 h4 mt-4">
+          REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
+          MINISTERIO DEL PODER POPULAR PARA LA DEFENSA <br>
+          VICEMINISTRO DE SERVICIOS PARA LA DEFENSA <br>
+          DIRECCIÓN GENERAL DE EMPRESAS Y SERVICIOS <br>
+          FUERZA ARMADA NACIONAL BOLIVARIANA <br>
+          RIF: G20003694-3
       </div>
-    </div>
-    
-  <div class="col-12 text-center mt-3"><b>AUTORIZACIÓN AFILIADO / TRATAMIENTOS A TRAVÉS DE LOS DIFERENTES CONVENIOS</b></div>
-
-  <div class="col-12 j mt-5">
-    Quien suscribe <b>{{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}</b> C.I. Nº <b>{{allPost.id}}</b> por medio del presente documento autorizó al
-    ciudadano (a) _________________________________________________________________________________  C.I N° ____________________, a
-    retirar en la empresa ______________________________; los MEDICAMENTOS asignados a mi persona para el mes de
-    noviembre de 2021 producto de convenio IPSFA con la mencionada empresa.
-  </div>
-
-  <div class="row col-md-12 mt-5 mb-5">
-    <div class="col-6 text-center">FIRMA AUTÓGRAFA DEL AFILIADO</div>
-    <div class="col-6 text-center">FIRMA DEL AUTORIZADO O HUELLA DACTILAR</div>
-  </div>
-  <div class="col-12">
-    Documentos a consignar adjunto a la autorización:
-  </div>
-  <div>
-  <div class="col-12 mt-4">
-    1.- Copia del carné del afiliado. <br>
-    2.- Copia de la cédula de identidad del afiliado y del autorizado. <br>
-    3.- Recipe médico en original. (MEDICAMENTOS CONTROLADOS Y TRATAMIENTO ESPECIAL). <br>
-    4.- Nota: Si requiere medicamento refrigerado, favor llevar cava. <br>
-  </div>
-    <div class="row col-md-12 mt-2">
-      <div class="col-6 l">
-        <img width="200" height="200" class="rounded-circle" src="../../../../../assets/img/dg.jpeg" alt="">
+      <div class="col-12 h4">
+        <b>AUTORIZACIÓN AFILIADO / TRATAMIENTOS A TRAVÉS DE LOS DIFERENTES CONVENIOS</b>
       </div>
-      <div class="col-6 mt-2">
-        <img  width="150" height="150" src="../../../../../assets/img/firma_dg.png" alt="">
+      <div class="col-12 h6 mt-5">
+        Quien suscribe <b>{{allPost2.apellidoprimero}}, {{allPost2.nombreprimero}}</b> C.I. Nº <b>{{allPost.id}}</b> por medio del presente documento autorizó al
+      ciudadano (a) _________________________________________________________________________________  C.I N° ____________________, a
+      retirar en la empresa ______________________________; los MEDICAMENTOS asignados a mi persona para el mes de
+      <b>noviembre de 2021</b> producto de convenio IPSFA con la mencionada empresa.
+      </div>
+      <div class="col-6 text-center mt-5 mb-5">FIRMA AUTÓGRAFA DEL AFILIADO</div>
+      <div class="col-6 text-center mt-5 mb-5">FIRMA DEL AUTORIZADO O HUELLA DACTILAR</div>
+      <div class="col-12 h6">
+        Documentos a consignar adjunto a la autorización:
+      </div>
+      <div class="col-12 mt-4 mb-3 h6">
+        1.- Copia del carné del afiliado. <br>
+        2.- Copia de la cédula de identidad del afiliado y del autorizado. <br>
+        3.- Recipe médico en original. (MEDICAMENTOS CONTROLADOS Y TRATAMIENTO ESPECIAL). <br>
+        4.- Nota: Si requiere medicamento refrigerado, favor llevar cava. <br>
+      </div>
+      <div class="col-5 l">
+        <img width="80%" class="rounded-circle" src="../../../../../assets/img/dg.jpeg">
+      </div>
+      <div class="col-6 mt-5">
+        <img src="../../../../../assets/img/firma_dg.png">
         <br>
-        <label>TCNEL. LINDA CLARET GUERRERO VELASCO <br>
-          GERENTE DE DROGUERIA Y FARMACIAS</label>
+        <img width="100%" src="../../../../../assets/img/firma dr.png">
+      </div>
+      <div class="col-1"></div>
+      <div class="col-12 mt-5">_______________________________________________________________________________________________________</div>
+      <div class="col-12 h5 mt-5 text-center">
+        <label>Av. Los Proceres, Edf. Sede del IPSFA, P.B., Gerencia de Drogueria y Farmacias. Dpto de Pensiones, Santa Monica, Municipio Libertador del
+          Distrito Capital, Caracas. Correo Electrónico: drogueriaipsfaccs@gmail.com</label>
       </div>
     </div>
   </div>
-  <hr class="mt-4">
-  <div class="col-12 text-center">
-    <label>Av. Los Proceres, Edf. Sede del IPSFA, P.B., Gerencia de Drogueria y Farmacias. Dpto de Pensiones, Santa Monica, Municipio Libertador del
-      Distrito Capital, Caracas. Correo Electrónico: drogueriaipsfaccs@gmail.com</label>
-  </div>
-
 </div>
