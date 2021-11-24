@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'solvencia', loadChildren: () => import('./pages/home/reportes/solvencia/solvencia.module').then(m => m.SolvenciaModule)},
   { path: 'afiliacion', loadChildren: () => import('./pages/home/reportes/afiliacion/afiliacion.module').then(m => m.AfiliacionModule)},
 
-  {path: '**', loadChildren: () => import('./pages/home/home.module').then((m) => m.HomeModule)}
+  {path: '**', loadChildren: () => import('./pages/auth/login/login.module').then((m) => m.LoginModule)}
 
 ];
 
