@@ -25,7 +25,8 @@ export class PostDataService implements OnInit, OnDestroy{
         .subscribe((res )=> (this.iscedula = res));
         let cedula = this.iscedula;
 
-        let url = "http://app.ipsfa.gob.ve:8081/devel/api/militar/crud/" + cedula;
+        //let url = "http://app.ipsfa.gob.ve:8081/devel/api/militar/crud/" + cedula;
+        let url = "https://app.ipsfa.gob.ve/ipsfa/api/web/militar/" + cedula;
         return this.http.get(url);
       }
 
@@ -35,12 +36,15 @@ export class PostDataService implements OnInit, OnDestroy{
         .subscribe((res )=> (this.iscedula = res));
         let cedula = this.iscedula;
 
-        let url = "http://app.ipsfa.gob.ve:8081/devel/api/pensionado/consultarneto/" + cedula;
+        //let url = "http://app.ipsfa.gob.ve:8081/devel/api/pensionado/consultarneto/" + cedula;
+        let url = "https://app.ipsfa.gob.ve/ipsfa/api/web/pensionado/consultarneto/" + cedula;
         return this.http.get(url);
       }
 
       getPostDataConceptos(){
-        let url = "http://app.ipsfa.gob.ve:8081/devel/api/nomina/conceptos/listar/";
+        
+        //let url = "http://app.ipsfa.gob.ve:8081/devel/api/";
+        let url = "https://app.ipsfa.gob.ve/ipsfa/api/web/nomina/conceptos/listar/";
         return this.http.get(url);
       }
       

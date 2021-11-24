@@ -59,7 +59,7 @@ export class RegistroComponent {
  ///se guarda el militar correo y clave
 
  getPostDataConceptos(){
-  let url = "http://app.ipsfa.gob.ve:8081/devel/api/militar/crud/" + this.cedula;
+  let url = "https://app.ipsfa.gob.ve/ipsfa/api/web/militar/" + this.cedula;
   return this.http.get(url);
 }
 
@@ -94,7 +94,9 @@ export class RegistroComponent {
             const user = { username: this.username, password: this.password, cedula: this.cedula, role: this.role, cedulafamiliar : this.cedulafamiliar};
             this.userService.register(user).subscribe(data => {});
             this.toastr.success('Usuario Guardado','Alerta');
-            window.location.reload ();         }
+            //window.location.reload ();     
+            setTimeout('document.location.reload()',1000);    
+          }
           else{
            
              this.toastr.warning('Fecha Incorrecta','Alerta');
