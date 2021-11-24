@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CheckLoginGuard } from '@shared/guards/check-login.guard';
 
 const routes: Routes = [
-  //{ path:'', redirectTo: 'login', pathMatch: 'full'  },
+  { path:'', redirectTo: 'login', pathMatch: 'full'  },
 
   {path: 'home', loadChildren: () => import('./pages/home/home.module').then((m) => m.HomeModule), },
   {path: 'notFound', loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule), },
